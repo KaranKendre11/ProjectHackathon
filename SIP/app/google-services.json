@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "305614787122",
+    "project_id": "sipdata-5448d",
+    "storage_bucket": "sipdata-5448d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305614787122:android:e06d6d5c3b603afe9e622b",
+        "android_client_info": {
+          "package_name": "com.example.sip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305614787122-qmic17dl578o5m18d7prkhdjt4lcbl0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB72QfmTGDiD95dgRXKnCxp9hPGlYCZivQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305614787122-qmic17dl578o5m18d7prkhdjt4lcbl0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
