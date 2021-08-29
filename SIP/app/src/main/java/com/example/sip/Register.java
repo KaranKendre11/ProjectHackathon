@@ -119,7 +119,8 @@ public class Register extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Register.this,"Failed to Create Account",
+
+                            Toast.makeText(Register.this,e.getMessage(),
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
