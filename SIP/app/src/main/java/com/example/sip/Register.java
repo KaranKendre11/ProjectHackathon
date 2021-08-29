@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Register extends AppCompatActivity {
-    EditText fullName,email,password,phone;
+    EditText fullName,email,password,subject;
     Button registerBtn,goToLogin;
     boolean valid = true;
     FirebaseAuth fAuth;
@@ -45,7 +45,7 @@ public class Register extends AppCompatActivity {
         fullName = findViewById(R.id.registerName);
         email = findViewById(R.id.registerEmail);
         password = findViewById(R.id.registerPassword);
-        phone = findViewById(R.id.registerPhone);
+        subject = findViewById(R.id.registerPhone);
         registerBtn = findViewById(R.id.registerBtn);
         goToLogin = findViewById(R.id.gotoLogin);
 
@@ -77,7 +77,7 @@ public class Register extends AppCompatActivity {
                 checkField(fullName);
                 checkField(email);
                 checkField(password);
-                checkField(phone);
+                checkField(subject);
 
                 if(!(isTeacherBox.isChecked()|| isStudentBox.isChecked())){
                     Toast.makeText(Register.this,"Select Account Type",Toast.LENGTH_SHORT).show();
@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
                             Map<String,Object> userInfo = new HashMap<>();
                             userInfo.put("fullName",fullName.getText().toString());
                             userInfo.put("UserEmail",email.getText().toString());
-                            userInfo.put("PhoneNumber",phone.getText().toString());
+                            userInfo.put("PhoneNumber",subject.getText().toString());
                             //specify if the user is admin
                            if(isTeacherBox.isChecked()){
                                userInfo.put("isTeacher","1");

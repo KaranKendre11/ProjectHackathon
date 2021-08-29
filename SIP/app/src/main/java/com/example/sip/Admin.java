@@ -27,18 +27,18 @@ public class Admin extends AppCompatActivity {
     ArrayList<User> userArrayList;
     MyAdapter myAdapter;
     FirebaseFirestore db;
-    ProgressDialog progressDialog;
+   // ProgressDialog progressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-
+/*
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading Data...");
-        progressDialog.show();
+        progressDialog.show(); */
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -64,27 +64,28 @@ public class Admin extends AppCompatActivity {
     }
 
     private void EventChangeListener() {
-        db.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(error != null){
 
-                    if(progressDialog.isShowing())
-                        progressDialog.dismiss();
-                    Log.e("Firestore error",error.getMessage());
-                    return;
-                }
+            db.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error){
+                    if (error != null) {
 
-                for(DocumentChange dc: value.getDocumentChanges()){
-                    if(dc.getType() == DocumentChange.Type.ADDED){
-                        userArrayList.add(dc.getDocument().toObject(User.class));
+                        //   if(progressDialog.isShowing())
+                        //     progressDialog.dismiss();
+                        Log.e("Firestore error", error.getMessage());
+                        return;
                     }
 
-                    myAdapter.notifyDataSetChanged();
-                    if(progressDialog.isShowing())
-                        progressDialog.dismiss();
+                    for (DocumentChange dc : value.getDocumentChanges()) {
+                        if (dc.getType() == DocumentChange.Type.ADDED) {
+                            userArrayList.add(dc.getDocument().toObject(User.class));
+                        }
+
+                        myAdapter.notifyDataSetChanged();
+                        //     if(progressDialog.isShowing())
+                        //     progressDialog.dismiss();
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 }
